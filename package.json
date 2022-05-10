@@ -1,0 +1,118 @@
+{
+  "name": "React_BoilerPlate",
+  "version": "1.0.0",
+  "description": "The boiler plate code containing basic configurations to build large scale",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayanksharma18/React_BoilerPlate.git"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development webpack-dev-server --config config/webpack/webpack.config.dev.js",
+    "build:production": "NODE_ENV=production webpack --config config/webpack/webpack.config.prod.js",
+    "build:clean": "rimraf ./build",
+    "test:clean": "rimraf ./coverage",
+    "lint": "eslint --ext=js,jsx .",
+    "test": "NODE_ENV=test jest",
+    "test:update": "NODE_ENV=test jest --updateSnapshot",
+    "test:watch": "NODE_ENV=test jest --watchAll",
+    "test:coverage": "NODE_ENV=test jest --coverage"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "eslint-webpack-plugin": "^3.1.1",
+    "identity-obj-proxy": "^3.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-redux": "^8.0.1",
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1",
+    "webpack": "^5.72.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-root-import": "^6.6.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "img-loader": "^4.0.0",
+    "jest": "^28.0.3",
+    "jest-localstorage-mock": "^2.4.21",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^6.2.1",
+    "postcss-modules": "^4.3.1",
+    "prettier": "^2.6.2",
+    "react-test-renderer": "^18.1.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "raf/polyfill",
+      "./testConfig/jestSetup.js",
+      "jest-localstorage-mock"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 95,
+        "branches": 95,
+        "functions": 95,
+        "lines": 95
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      ".*\\.(css|less|styl|scss)$": "<rootDir>/testConfig/internals/mocks/cssModule.js",
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/testConfig/internals/mocks/image.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/testConfig/internals/testing/test-bundler.js"
+    ],
+    "globals": {
+      "API_URL": "blah",
+      "SEGMENT_KEY": "blah"
+    }
+  },
+  "license": "MIT"
+}
